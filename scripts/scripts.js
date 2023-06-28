@@ -4,15 +4,7 @@
 let player_wins = 0;
 let comp_wins = 0;
 let total_games = 0;
-
 let game_on = false;
-
-function is_game_on() {
-    game_on = true;
-    console.log(game_on)
-    
-}
- 
 function get_rand_int() {
     let min = Math.floor(1);
     let max = Math.floor(3);
@@ -23,7 +15,8 @@ function get_rand_int() {
 
 function the_game(player_choice=``) {
     console.log(player_choice);
-    let ran_int = 0;    
+    let ran_int = 0;
+    game_on = true;    
     do {
         ran_int = get_rand_int()
         switch (ran_int) {
@@ -76,6 +69,6 @@ function the_game(player_choice=``) {
                     break;
                 }      
         } console.log("Choose again")
-
-    } while (total_games < 5 && game_on === true);
+        game_on = false;
+    } while (total_games < 5 && game_on === true)
 }

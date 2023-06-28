@@ -2,3 +2,16 @@
     box-sizing: border-box;
     
 }
+
+button {
+    margin: 25px;
+    padding: 25px;
+
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+}
