@@ -11,7 +11,27 @@ button {
 
 body {
     display: flex;
+    flex-direction: column;
+
+}
+.gameBox {
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 600px;
+}
+
+.lowerBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 75px;
+}
+
+.playerBox {
+    display: flex;
+}
+
+.compBox {
+    display: flex;
 }

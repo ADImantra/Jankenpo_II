@@ -1,74 +1,74 @@
 //Player can start a game, end the game whenever, and choose one of three options (rock/paper/scissors) 
 //computer randomly selects and then compares results. game ends at 5 turns and displays result
 
-let player_wins = 0;
-let comp_wins = 0;
-let total_games = 0;
-let game_on = false;
-function get_rand_int() {
+// Declare global variables
+let playerScore = 0;
+let compScore = 0;
+let totalGames = 0;
+// creates a random number 1 to 3 and associates it with "rock", 
+// "paper", or "scissors"
+function compTurn() 
+{
     let min = Math.floor(1);
     let max = Math.floor(3);
-    console
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    let compValue = Math.floor(Math.random() * (max - min + 1) + min);
 
+    if (compValue === 1) {
+        return "rock";
+    }
+    else if (compValue === 2) {
+        return "paper";
+    }
+    else {
+        return "scissors";
+    } 
 }
 
-function the_game(player_choice=``) {
-    console.log(player_choice);
-    let ran_int = 0;
-    game_on = true;    
-    do {
-        ran_int = get_rand_int()
-        switch (ran_int) {
-            case 1:
-                console.log("comp choice is rock") 
-                if (player_choice === `Paper`) {
-                    player_wins += 1;
-                    total_games += 1;
-                    console.log(`win`);
-                    break;
-                } else if (player_choice === `Scissors`) {
-                    comp_wins += 1;
-                    total_games += 1;
-                    console.log(`lose`);
-                    break;
-                } else {
-                    console.log(`tie`);
-                    break;
-                }
-            case 2:
-                console.log("comp choice is paper")  
-                if (player_choice === `Scissors`) {
-                    player_wins += 1;
-                    total_games += 1;
-                    console.log(`win`);
-                    break;
-                } else if (player_choice === `Rock`) {
-                    comp_wins += 1;
-                    total_games += 1;
-                    console.log(`lose`)
-                    break;
-                } else {
-                    console.log(`tie`)
-                    break;
-                }
-            case 3:
-                console.log("comp choice is scissors")  
-                if (player_choice === `Rock`) {
-                    player_wins += 1;
-                    total_games += 1;
-                    console.log(`win`);
-                    break;
-                } else if (player_choice === `Paper`) {
-                    comp_wins += 1;
-                    total_games += 1;
-                    console.log(`lose`)
-                    break;
-                } else {
-                    console.log(`tie`)
-                    break;
-                }      
-        } console.log("Choose again")
-        game_on = false;
-    } while (total_games < 5 && game_on === true)
+function janKenPo(playerChoice=``) 
+{   // grabs the computer's "play"
+    let compValue = compTurn()
+
+    console.log(`You chose ${playerChoice}`);
+    console.log(`They Chose ${compValue}`);
+
+    if (playerChoice === `rock`) {
+        if (compValue === `scissors`) {
+            playerScore++
+            totalGames++
+            console.log(`Win`)
+        } else if (compValue === `paper`) {
+            compScore++
+            totalGames++
+            console.log(`Lose`)
+        } else {
+            totalGames++
+            console.log(`Tie`)
+        }
+    } else if (playerChoice === `paper`) {
+        if (compValue === `rock`) {
+            playerScore++
+            totalGames++
+            console.log(`Win`)
+        } else if (compValue === `scissors`) {
+            compScore++
+            totalGames++
+            console.log(`Lose`)
+        } else {
+            totalGames++
+            console.log(`Tie`)
+        } 
+    } else {
+        if (compValue === `paper`) {
+            playerScore++
+            totalGames++
+            console.log(`Win`)
+        } else if (compValue === `rock`) {
+            compScore++
+            totalGames++
+            console.log(`Lose`)
+        } else {
+            totalGames++
+            console.log(`Tie`)
+        }
+    }
 }

@@ -4,12 +4,27 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width initial-scale=1.0">
         <link rel="stylesheet" href="styles/styles.css">
-        <title>Tic-Tac-Toe</title>
+        <title>Jan Ken Po</title>
     </head>
     <body>
-        <script src="scripts/scripts.js"></script>
-        <button onclick="the_game(`Rock`)">Rock</button>
-        <button onclick="the_game(`Paper`)">Paper</button>
-        <button onclick="the_game(`Scissors`)">Scissors</button>
+        <div class="gameBox">
+            <script src="scripts/scripts.js"></script>
+            <button onclick="janKenPo(`rock`)">Rock</button>
+            <button onclick="janKenPo(`paper`)">Paper</button>
+            <button onclick="janKenPo(`scissors`)">Scissors</button>
+        </div>
+        <div class="lowerBox">
+            <div class="playerBox">
+                <div class="playerScore">
+                    <p class="pScore">Player Score: 0</p>
+                </div>
+            </div>
+
+            <div class="compBox">
+                <div class="compScore">
+                    <p class="cScore">Computer Score: 0</p>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
