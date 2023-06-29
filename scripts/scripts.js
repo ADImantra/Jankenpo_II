@@ -28,7 +28,7 @@ function janKenPo(playerChoice=``)
 {   // grabs the computer's "play"
     let compValue = compTurn()
 
-    console.log(`You chose ${playerChoice}`);
+    console.log(`You Chose ${playerChoice}`);
     console.log(`They Chose ${compValue}`);
 
     if (playerChoice === `rock`) {
