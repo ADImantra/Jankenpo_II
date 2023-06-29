@@ -29,71 +29,113 @@ function compTurn()
 // and grabs the computer's choice, then compares them.
 function janKenPo(playerChoice=``) 
 {   // grabs the computer's "play"
-    let compValue = compTurn();
+    let compChoice = compTurn();
 
     console.log(`You Chose ${playerChoice}`);
-    console.log(`They Chose ${compValue}`);
+    console.log(`They Chose ${compChoice}`);
 
     if (playerChoice === `rock`) {
-        if (compValue === `scissors`) {
+        if (compChoice === `scissors`) {
+
             playerScore++
             totalGames++
+
             const currentPlayerScore = document.querySelector("#pScore").innerHTML = `Player Score: ${playerScore}`;
             const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
+            const gameMessage = document.querySelector("#turnResult").innerHTML = `${playerChoice} beats ${compChoice} you win this round`;
+
             console.log(`Win`)
             checkWinner()
-        } else if (compValue === `paper`) {
+
+        } else if (compChoice === `paper`) {
+
             compScore++
             totalGames++
+
             const currentCompScore = document.querySelector("#cScore").innerHTML = `Comp Score: ${compScore}`;
             const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
+            const gameMessage = document.querySelector("#turnResult").innerHTML = `${compChoice} beats ${playerChoice} you lose this round`;
+
             console.log(`Lose`)
             checkWinner()
+
         } else {
+
             totalGames++
+
             const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
+            const gameMessage = document.querySelector("#turnResult").innerHTML = `${compChoice} against ${playerChoice} it's a draw`;
+
             console.log(`Tie`)
             checkWinner()
         }
     } else if (playerChoice === `paper`) {
-        if (compValue === `rock`) {
+        if (compChoice === `rock`) {
+
             playerScore++
             totalGames++
+
             const currentPlayerScore = document.querySelector("#pScore").innerHTML = `Player Score: ${playerScore}`;
             const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
+            const gameMessage = document.querySelector("#turnResult").innerHTML = `${playerChoice} beats ${compChoice} you win this round`;
+
             console.log(`Win`)
             checkWinner()
-        } else if (compValue === `scissors`) {
+
+        } else if (compChoice === `scissors`) {
+
             compScore++
             totalGames++
+
             const currentCompScore = document.querySelector("#cScore").innerHTML = `Comp Score: ${compScore}`;
             const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
+            const gameMessage = document.querySelector("#turnResult").innerHTML = `${compChoice} beats ${playerChoice} you lose this round`;
+
             console.log(`Lose`)
             checkWinner()
+
         } else {
+
             totalGames++
+
             const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
+            const gameMessage = document.querySelector("#turnResult").innerHTML = `${compChoice} against ${playerChoice} it's a draw`;
+
             console.log(`Tie`)
             checkWinner()
         } 
     } else {
-        if (compValue === `paper`) {
+        if (compChoice === `paper`) {
+
             playerScore++
             totalGames++
+
             const currentPlayerScore = document.querySelector("#pScore").innerHTML = `Player Score: ${playerScore}`;
             const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
+            const gameMessage = document.querySelector("#turnResult").innerHTML = `${playerChoice} beats ${compChoice} you win this round`;
+
             console.log(`Win`)
             checkWinner()
-        } else if (compValue === `rock`) {
+
+        } else if (compChoice === `rock`) {
+
             compScore++
             totalGames++
+
             const currentCompScore = document.querySelector("#cScore").innerHTML = `Comp Score: ${compScore}`;
             const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
+            const gameMessage = document.querySelector("#turnResult").innerHTML = `${compChoice} beats ${playerChoice} you lose this round`;
+
             console.log(`Lose`)
             checkWinner()
+
         } else {
+
             totalGames++
+
             const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
+            const gameMessage = document.querySelector("#turnResult").innerHTML = `${compChoice} against ${playerChoice} it's a draw`;
+
             console.log(`Tie`)
             checkWinner()
         }
@@ -105,12 +147,15 @@ function checkWinner()
     if (playerScore === 5 || compScore === 5) {
         if (playerScore > compScore) {
             playerWins()
+            reset()
         }
         else if(compScore > playerScore) {
             compWins()
+            reset()
         }
         else {
-            tieGame
+            tieGame()
+            reset()
         }
     } 
 }
@@ -118,14 +163,29 @@ function checkWinner()
 function playerWins() 
 {
     console.log(`You Win`)
+    const gameMessage = document.querySelector("#turnResult").innerHTML = `You have won this game, play again?`;
 }
 
 function compWins() 
 {
     console.log(`You Lose`)
+    const gameMessage = document.querySelector("#turnResult").innerHTML = `You have lost this game, play again?`;
 }
 
 function tieGame() 
 {
     console.log(`It's a Tie`)
+    const gameMessage = document.querySelector("#turnResult").innerHTML = `against all odds, it's a draw... play again?`;
+}
+
+function reset() 
+{
+    playerScore = 0;
+    const currentPlayerScore = document.querySelector("#pScore").innerHTML = `Player Score: ${playerScore}`;
+
+    compScore = 0;
+    const currentCompScore = document.querySelector("#cScore").innerHTML = `Comp Score: ${compScore}`;
+
+    totalGames = 0;
+    const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
 }

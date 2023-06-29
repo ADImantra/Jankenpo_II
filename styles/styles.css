@@ -18,13 +18,24 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 600px;
+    height: 300px;
 }
 
-.lowerBox {
+.messageBox {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 20px 0px;
+    padding: 40px;
+    border: 1mm solid;
+
+}
+
+.statsBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 75px;
     gap: 75px;
 }
 
