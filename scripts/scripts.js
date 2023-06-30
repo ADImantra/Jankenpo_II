@@ -8,6 +8,9 @@ let totalGames = 0;
 
 const startButton = document.getElementById("startButton").addEventListener(`click`, startGame);
 const replayButton = document.getElementById("playAgain").addEventListener(`click`, reset);
+
+const replayButton = document.getElementById("playAgain").addEventListener(`click`, reset);
+
 const buttonBox = document.getElementById("setupBox");
 const reveal = document.getElementById("revealer");
 const endBox = document.getElementById("endGame");
@@ -16,10 +19,8 @@ function startGame()
 {
     buttonBox.style.display = "none";
     reveal.style.display = "flex";
-}
+};
 
-// creates a random number 1 to 3 and associates it with "rock", 
-// "paper", or "scissors"
 function compTurn() 
 {
     let min = Math.floor(1);
@@ -35,10 +36,8 @@ function compTurn()
     else {
         return "scissors";
     } 
-}
+};
 
-// this is actual "game" it takes an input from the player
-// and grabs the computer's choice, then compares them.
 function janKenPo(playerChoice=``) 
 {   // grabs the computer's "play"
     let compChoice = compTurn();
@@ -152,7 +151,7 @@ function janKenPo(playerChoice=``)
             checkWinner()
         }
     }
-}
+};
 
 function checkWinner() 
 {
@@ -167,7 +166,7 @@ function checkWinner()
             tieGame()
         }
     } 
-}
+};
 
 function playerWins() 
 {
@@ -177,7 +176,7 @@ function playerWins()
     buttonBox.style.display = "none";
     reveal.style.display = "none";
     endBox.style.display = "flex";
-}
+};
 
 function compWins() 
 {
@@ -187,7 +186,7 @@ function compWins()
     buttonBox.style.display = "none";
     reveal.style.display = "none";
     endBox.style.display = "flex";
-}
+};
 
 function tieGame() 
 {
@@ -197,7 +196,7 @@ function tieGame()
     buttonBox.style.display = "none";
     reveal.style.display = "none";
     endBox.style.display = "flex";
-}
+};
 
 function reset() 
 {
@@ -214,4 +213,4 @@ function reset()
     reveal.style.display = "flex";
     endBox.style.display = "none";
 
-}
+};
