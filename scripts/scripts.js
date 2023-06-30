@@ -6,6 +6,18 @@ let playerScore = 0;
 let compScore = 0;
 let totalGames = 0;
 
+const startButton = document.getElementById("startButton").addEventListener(`click`, startGame);
+const replayButton = document.getElementById("playAgain").addEventListener(`click`, reset);
+const buttonBox = document.getElementById("setupBox");
+const reveal = document.getElementById("revealer");
+const endBox = document.getElementById("endGame");
+
+function startGame()
+{
+    buttonBox.style.display = "none";
+    reveal.style.display = "flex";
+}
+
 // creates a random number 1 to 3 and associates it with "rock", 
 // "paper", or "scissors"
 function compTurn() 
@@ -147,15 +159,12 @@ function checkWinner()
     if (playerScore === 5 || compScore === 5) {
         if (playerScore > compScore) {
             playerWins()
-            reset()
         }
         else if(compScore > playerScore) {
             compWins()
-            reset()
         }
         else {
             tieGame()
-            reset()
         }
     } 
 }
@@ -164,18 +173,30 @@ function playerWins()
 {
     console.log(`You Win`)
     const gameMessage = document.querySelector("#turnResult").innerHTML = `You have won this game, play again?`;
+
+    buttonBox.style.display = "none";
+    reveal.style.display = "none";
+    endBox.style.display = "flex";
 }
 
 function compWins() 
 {
     console.log(`You Lose`)
     const gameMessage = document.querySelector("#turnResult").innerHTML = `You have lost this game, play again?`;
+
+    buttonBox.style.display = "none";
+    reveal.style.display = "none";
+    endBox.style.display = "flex";
 }
 
 function tieGame() 
 {
     console.log(`It's a Tie`)
     const gameMessage = document.querySelector("#turnResult").innerHTML = `against all odds, it's a draw... play again?`;
+
+    buttonBox.style.display = "none";
+    reveal.style.display = "none";
+    endBox.style.display = "flex";
 }
 
 function reset() 
@@ -188,4 +209,9 @@ function reset()
 
     totalGames = 0;
     const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
+
+    buttonBox.style.display = "none";
+    reveal.style.display = "flex";
+    endBox.style.display = "none";
+
 }

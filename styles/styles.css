@@ -14,6 +14,27 @@ body {
     flex-direction: column;
 
 }
+
+.outerContainer {
+    display: none;
+    flex-direction: column;
+
+}
+
+.lowerContainer {
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.gameSetup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .gameBox {
     display: flex;
     align-items: center;

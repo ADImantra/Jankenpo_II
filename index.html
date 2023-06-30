@@ -7,35 +7,45 @@
         <title>Jan Ken Po</title>
     </head>
     <body>
-        <div class="gameBox">
-            <script src="scripts/scripts.js"></script>
-            <button onclick="janKenPo(`rock`)">Rock</button>
-            <button onclick="janKenPo(`paper`)">Paper</button>
-            <button onclick="janKenPo(`scissors`)">Scissors</button>
-        </div>
-
-        <div class="messageBox">
-            <p class="messages" id="turnResult">test</div>
-        </div>
-
-        <div class="statsBox">
-            <div class="playerBox">
-                <div class="playerScore">
-                    <p class="score" id="pScore">Player Score: 0</p>
-                </div>
-            </div>
-
-            <div class="gameTotalBox">
-                <div class="totalGames">
-                    <p class="score" id="gScore">Total Games: 0</p>
-                </div>
-            </div>
-
-            <div class="compBox">
-                <div class="compScore">
-                    <p class="score" id="cScore">Computer Score: 0</p>
-                </div>
+        <div class="gameSetup" id="setupBox">
+            <div class="container">
+                <button class="starter" id="startButton">Start Game?</button>
             </div>
         </div>
+        <div class="outerContainer" id="revealer">   
+            <div class="gameBox">
+                <button onclick="janKenPo(`rock`)">Rock</button>
+                <button onclick="janKenPo(`paper`)">Paper</button>
+                <button onclick="janKenPo(`scissors`)">Scissors</button>
+            </div>
+            
+            <div class="messageBox">
+                <p class="messages" id="turnResult">Make a choice to begin</p>
+            </div>
+            
+            <div class="statsBox">
+                <div class="playerBox">
+                    <div class="playerScore">
+                        <p class="score" id="pScore">Player Score: 0</p>
+                    </div>
+                </div>
+            
+                <div class="gameTotalBox">
+                    <div class="totalGames">
+                        <p class="score" id="gScore">Total Games: 0</p>
+                    </div>
+                </div>
+            
+                <div class="compBox">
+                    <div class="compScore">
+                        <p class="score" id="cScore">Computer Score: 0</p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="lowerContainer" id="endGame">
+            <button class="restart" id="playAgain">Play Again?</button>
+        </div>
+    <script src="scripts/scripts.js"></script>                
     </body>
 </html>
