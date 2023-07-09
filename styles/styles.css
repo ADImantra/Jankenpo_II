@@ -2,14 +2,53 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: url("/resources/clouds.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode:soft-light;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+}
+
+button {
+    padding: 10px;
+    width: 100px;
+}
+
+.game-box {
+    background-image: url("/resources/ukiyo-mountain.jpg");
+    background-repeat: no-repeat;
+    background-blend-mode:soft-light;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    border: 2px solid;
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px  #888888;
+    margin-top: 150px;
+}
+
 .setup {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 212px 300px;
+    
 }
 
 .main {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 212px 195px;
+    
+}
+
+.end_game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
