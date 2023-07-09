@@ -1,69 +1,15 @@
 * {
     box-sizing: border-box;
-    
 }
 
-button {
-    margin: 25px;
-    padding: 25px;
-
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-
-}
-
-.outerContainer {
-    display: none;
-    flex-direction: column;
-
-}
-
-.lowerContainer {
-    display: none;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.gameSetup {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.gameBox {
+.setup {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 300px;
 }
 
-.messageBox {
+.main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px 0px;
-    padding: 40px;
-    border: 1mm solid;
-
-}
-
-.statsBox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 75px;
-    gap: 75px;
-}
-
-.playerBox {
-    display: flex;
-}
-
-.compBox {
-    display: flex;
 }

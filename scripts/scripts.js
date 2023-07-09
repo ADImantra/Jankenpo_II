@@ -6,21 +6,54 @@ let playerScore = 0;
 let compScore = 0;
 let totalGames = 0;
 
-const startButton = document.getElementById("startButton").addEventListener(`click`, startGame);
-const replayButton = document.getElementById("playAgain").addEventListener(`click`, reset);
+//create an object for all the elements in the html we're going to use.
+const body = document.querySelector(`body`);
+const setup = document.querySelector(`.setup`);
+const startButton = document.querySelector(`.start-button`);
+const main = document.querySelector(`.main`);
+const container = document.querySelector(`.container`);
+const endGame = document.querySelector(`.end-game`);
+const endButton = document.querySelectorAll(`.end-game-button`);
 
-const replayButton = document.getElementById("playAgain").addEventListener(`click`, reset);
 
-const buttonBox = document.getElementById("setupBox");
-const reveal = document.getElementById("revealer");
-const endBox = document.getElementById("endGame");
+//this is the trigger thats going to actually run the game. The player's primary 
+//means of interacting and triggering events. 
+const rock = document.getElementById("rock").addEventListener(`click`, () => {
+    janKenPo(`rock`);
+});
 
-function startGame()
+const paper = document.getElementById("paper").addEventListener(`click`, () => {
+    janKenPo(`paper`);
+});
+
+const scissors = document.getElementById("scissors").addEventListener(`click`, () => {
+    janKenPo(`scissors`);
+});
+
+
+//initializes the UI on load-in
+document.addEventListener(`DOMContentLoaded`, initialize);
+const gameStart = document.querySelector(`.start-button`).addEventListener(`click`, startGame);
+
+
+function initialize() 
 {
-    buttonBox.style.display = "none";
-    reveal.style.display = "flex";
-};
+    //removes the player's buttons prior to "Start game"
+    main.removeChild(container);
 
+    //removes "end-game" buttons until a winner is declared
+    let buttonArray = Array.from(endButton);
+    buttonArray.forEach(button => button.remove());
+}
+
+//causes player-buttons to appear
+function startGame() 
+{
+    setup.removeChild(startButton);
+    main.appendChild(container)
+}
+
+//random number generator 1-3
 function compTurn() 
 {
     let min = Math.floor(1);
@@ -29,13 +62,11 @@ function compTurn()
 
     if (compValue === 1) {
         return "rock";
-    }
-    else if (compValue === 2) {
+    } else if (compValue === 2) {
         return "paper";
-    }
-    else {
+    } else {
         return "scissors";
-    } 
+    };
 };
 
 function janKenPo(playerChoice=``) 
@@ -51,9 +82,6 @@ function janKenPo(playerChoice=``)
             playerScore++
             totalGames++
 
-            const currentPlayerScore = document.querySelector("#pScore").innerHTML = `Player Score: ${playerScore}`;
-            const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
-            const gameMessage = document.querySelector("#turnResult").innerHTML = `${playerChoice} beats ${compChoice} you win this round`;
 
             console.log(`Win`)
             checkWinner()
@@ -63,9 +91,6 @@ function janKenPo(playerChoice=``)
             compScore++
             totalGames++
 
-            const currentCompScore = document.querySelector("#cScore").innerHTML = `Comp Score: ${compScore}`;
-            const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
-            const gameMessage = document.querySelector("#turnResult").innerHTML = `${compChoice} beats ${playerChoice} you lose this round`;
 
             console.log(`Lose`)
             checkWinner()
@@ -73,9 +98,6 @@ function janKenPo(playerChoice=``)
         } else {
 
             totalGames++
-
-            const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
-            const gameMessage = document.querySelector("#turnResult").innerHTML = `${compChoice} against ${playerChoice} it's a draw`;
 
             console.log(`Tie`)
             checkWinner()
@@ -86,10 +108,6 @@ function janKenPo(playerChoice=``)
             playerScore++
             totalGames++
 
-            const currentPlayerScore = document.querySelector("#pScore").innerHTML = `Player Score: ${playerScore}`;
-            const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
-            const gameMessage = document.querySelector("#turnResult").innerHTML = `${playerChoice} beats ${compChoice} you win this round`;
-
             console.log(`Win`)
             checkWinner()
 
@@ -98,19 +116,12 @@ function janKenPo(playerChoice=``)
             compScore++
             totalGames++
 
-            const currentCompScore = document.querySelector("#cScore").innerHTML = `Comp Score: ${compScore}`;
-            const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
-            const gameMessage = document.querySelector("#turnResult").innerHTML = `${compChoice} beats ${playerChoice} you lose this round`;
-
             console.log(`Lose`)
             checkWinner()
 
         } else {
 
             totalGames++
-
-            const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
-            const gameMessage = document.querySelector("#turnResult").innerHTML = `${compChoice} against ${playerChoice} it's a draw`;
 
             console.log(`Tie`)
             checkWinner()
@@ -121,10 +132,6 @@ function janKenPo(playerChoice=``)
             playerScore++
             totalGames++
 
-            const currentPlayerScore = document.querySelector("#pScore").innerHTML = `Player Score: ${playerScore}`;
-            const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
-            const gameMessage = document.querySelector("#turnResult").innerHTML = `${playerChoice} beats ${compChoice} you win this round`;
-
             console.log(`Win`)
             checkWinner()
 
@@ -133,19 +140,12 @@ function janKenPo(playerChoice=``)
             compScore++
             totalGames++
 
-            const currentCompScore = document.querySelector("#cScore").innerHTML = `Comp Score: ${compScore}`;
-            const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
-            const gameMessage = document.querySelector("#turnResult").innerHTML = `${compChoice} beats ${playerChoice} you lose this round`;
-
             console.log(`Lose`)
             checkWinner()
 
         } else {
 
             totalGames++
-
-            const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
-            const gameMessage = document.querySelector("#turnResult").innerHTML = `${compChoice} against ${playerChoice} it's a draw`;
 
             console.log(`Tie`)
             checkWinner()
@@ -157,60 +157,14 @@ function checkWinner()
 {
     if (playerScore === 5 || compScore === 5) {
         if (playerScore > compScore) {
-            playerWins()
+            console.log(`player wins`)
         }
         else if(compScore > playerScore) {
-            compWins()
+            console.log(`comp wins`)
         }
         else {
-            tieGame()
+            console.log(`tie`)
         }
     } 
 };
 
-function playerWins() 
-{
-    console.log(`You Win`)
-    const gameMessage = document.querySelector("#turnResult").innerHTML = `You have won this game, play again?`;
-
-    buttonBox.style.display = "none";
-    reveal.style.display = "none";
-    endBox.style.display = "flex";
-};
-
-function compWins() 
-{
-    console.log(`You Lose`)
-    const gameMessage = document.querySelector("#turnResult").innerHTML = `You have lost this game, play again?`;
-
-    buttonBox.style.display = "none";
-    reveal.style.display = "none";
-    endBox.style.display = "flex";
-};
-
-function tieGame() 
-{
-    console.log(`It's a Tie`)
-    const gameMessage = document.querySelector("#turnResult").innerHTML = `against all odds, it's a draw... play again?`;
-
-    buttonBox.style.display = "none";
-    reveal.style.display = "none";
-    endBox.style.display = "flex";
-};
-
-function reset() 
-{
-    playerScore = 0;
-    const currentPlayerScore = document.querySelector("#pScore").innerHTML = `Player Score: ${playerScore}`;
-
-    compScore = 0;
-    const currentCompScore = document.querySelector("#cScore").innerHTML = `Comp Score: ${compScore}`;
-
-    totalGames = 0;
-    const currentTotalGame = document.querySelector("#gScore").innerHTML = `Total Games: ${totalGames}`;
-
-    buttonBox.style.display = "none";
-    reveal.style.display = "flex";
-    endBox.style.display = "none";
-
-};

@@ -1,51 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width initial-scale=1.0">
-        <link rel="stylesheet" href="styles/styles.css">
-        <title>Jan Ken Po</title>
-    </head>
-    <body>
-        <div class="gameSetup" id="setupBox">
-            <div class="container">
-                <button class="starter" id="startButton">Start Game?</button>
-            </div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Jan Ken Po</title>
+</head>
+
+<body>
+    <div class="setup">
+        <p class="intro-text" id="game-desc"></p>
+        <button class="start-button" id="starter">じゃん拳 <em>! ! !</em></button>
+    </div>
+    <div class="main">
+        <div class="container" id="game-buttons">
+            <button class="player-choice" id="rock"> グー </button>
+            <button class="player-choice" id="paper"> パー </button>
+            <button class="player-choice" id="scissors"> チョキ </button>
         </div>
-        <div class="outerContainer" id="revealer">   
-            <div class="gameBox">
-                <button onclick="janKenPo(`rock`)">石</button>
-                <button onclick="janKenPo(`paper`)">紙</button>
-                <button onclick="janKenPo(`scissors`)">鉸</button>
-            </div>
-            
-            <div class="messageBox">
-                <p class="messages" id="turnResult">Make a choice to begin</p>
-            </div>
-            
-            <div class="statsBox">
-                <div class="playerBox">
-                    <div class="playerScore">
-                        <p class="score" id="pScore">Player Score: 0</p>
-                    </div>
-                </div>
-            
-                <div class="gameTotalBox">
-                    <div class="totalGames">
-                        <p class="score" id="gScore">Total Games: 0</p>
-                    </div>
-                </div>
-            
-                <div class="compBox">
-                    <div class="compScore">
-                        <p class="score" id="cScore">Computer Score: 0</p>
-                    </div>
-                </div>
-            </div> 
+        <div class="container" id="game-text">
+            <p class="scores" id="pScore"></p>
+            <p class="scores" id="totalGames"></p>
+            <p class="scores" id="cScore"></p>
         </div>
-        <div class="lowerContainer" id="endGame">
-            <button class="restart" id="playAgain">Play Again?</button>
-        </div>
-    <script src="scripts/scripts.js"></script>                
-    </body>
+    </div>
+    <div class="end-game">
+        <p class="outro-text" id="end-game-desc"></p>
+        <button class="end-game-button" id="ender"> ストップ </button>
+        <button class="end-game-button" id="looper"> リスタート </button>
+    </div>
+    <script src="scripts/scripts.js"></script>
+</body>
+
 </html>
