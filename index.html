@@ -7,28 +7,29 @@
     <link rel="stylesheet" href="styles/styles.css">
     <title>Jan Ken Po</title>
 </head>
-
 <body>
-    <div class="setup">
-        <p class="intro-text" id="game-desc"></p>
-        <button class="start-button" id="starter">じゃん拳 <em>! ! !</em></button>
+    <div class="message-box">
+        <p class="scores" id="game-text">じゃん拳を遊びませんか 先着〜5勝</p>
+        <p class="scores" id="total-games">回 : 0</p>
+        <p class="scores" id="player-score">プレイヤー : 0</p>
+        <p class="scores" id="comp-score">コンピュータ : 0</p>
     </div>
-    <div class="main">
-        <div class="container" id="game-buttons">
-            <button class="player-choice" id="rock"> グー </button>
-            <button class="player-choice" id="paper"> パー </button>
-            <button class="player-choice" id="scissors"> チョキ </button>
+    <div class="game-box">
+        <div class="setup">
+            <button class="start-button" id="starter">じゃん拳 <em>! ! !</em></button>
         </div>
-        <div class="container" id="game-text">
-            <p class="scores" id="pScore"></p>
-            <p class="scores" id="totalGames"></p>
-            <p class="scores" id="cScore"></p>
+        <div class="main">
+            <div class="container" id="game-buttons">
+                <button class="player-choice" id="rock"> グー </button>
+                <button class="player-choice" id="paper"> パー </button>
+                <button class="player-choice" id="scissors"> チョキ </button>
+            </div>
         </div>
-    </div>
-    <div class="end-game">
-        <p class="outro-text" id="end-game-desc"></p>
-        <button class="end-game-button" id="ender"> ストップ </button>
-        <button class="end-game-button" id="looper"> リスタート </button>
+        <div class="end-game">
+            <p class="outro-text" id="end-game-desc"></p>
+            <button class="end-game-button" id="ender"> ストップ </button>
+            <button class="end-game-button" id="looper"> リスタート </button>
+        </div>
     </div>
     <script src="scripts/scripts.js"></script>
 </body>
