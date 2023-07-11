@@ -9,7 +9,7 @@ body {
     background-blend-mode:soft-light;
     display: flex;
     align-items: center;    
-    justify-content: center;
+    justify-content:space-evenly;
 }
 
 button {
@@ -21,7 +21,10 @@ button {
     display: flex;
     border: 2px solid;
     flex-direction: column;
+    justify-content: flex-start;
+    flex-basis: 300px;
     background-color: #cecece;
+    border-radius: 10px;
     margin: 0px 75px;
     padding: 200px 20px;
 }
@@ -33,10 +36,11 @@ button {
     display: flex;
     align-items: center;    
     justify-content: center;
+    flex-grow: 150px;
     border: 2px solid;
     border-radius: 20px;
     box-shadow: 4px 4px 4px  #888888;
-    margin-top: 150px;
+    margin-top: 10px;
 }
 
 .setup {
