@@ -17,6 +17,15 @@ button {
     width: 100px;
 }
 
+.message-box {
+    display: flex;
+    border: 2px solid;
+    flex-direction: column;
+    background-color: #cecece;
+    margin: 0px 75px;
+    padding: 200px 20px;
+}
+
 .game-box {
     background-image: url("/resources/ukiyo-mountain.jpg");
     background-repeat: no-repeat;
@@ -46,9 +55,11 @@ button {
     
 }
 
-.end_game {
+.end-game {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 212px 230px;
+    gap: 20px;
     
 }
